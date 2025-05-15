@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Quote Box</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 1s;
+      font-family: sans-serif;
+    }
+
+    .quote-box {
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      max-width: 80%;
+      text-align: center;
+      transition: all 0.5s ease; /* Smooth size transition */
+    }
+
+    h4 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-box">
+    <h4></h4>
+  </div>
+
+  <script>
+    const quotes = [
+      "Believe you can and you're halfway there.",
+      "The only way to do great work is to love what you do.",
+      "Don't watch the clock; do what it does. Keep going.",
+      "Success is not in what you have, but who you are.",
+      "Act as if what you do makes a difference. It does.",
+      "Start where you are. Use what you have. Do what you can.",
+      "Success usually comes to those who are too busy to be looking for it.",
+      "The future belongs to those who believe in the beauty of their dreams.",
+      "Hardships often prepare ordinary people for an extraordinary destiny.",
+      "Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.",
+      "Your time is limited, so don’t waste it living someone else’s life.",
+      "Everything you’ve ever wanted is on the other side of fear.",
+      "It does not matter how slowly you go as long as you do not stop.",
+      "Dream big and dare to fail.",
+      "You are never too old to set another goal or to dream a new dream.",
+      "In the middle of every difficulty lies opportunity.",
+      "Believe in yourself and all that you are.",
+      "Do something today that your future self will thank you for.",
+      "Push yourself, because no one else is going to do it for you.",
+      "Little by little, a little becomes a lot."
+    ];
+  console.log(quotes.length)
+    const quoteEl = document.querySelector('h4');
+
+    function updateQuote() {
+      const index = Math.floor(Math.random() * quotes.length);
+      quoteEl.textContent = quotes[index];
+    }
+
+    function updateBackgroundColor() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
+
+    setInterval(updateQuote, 1000);
+    setInterval(updateBackgroundColor, 1000);
+  </script>
+</body>
+</html>
